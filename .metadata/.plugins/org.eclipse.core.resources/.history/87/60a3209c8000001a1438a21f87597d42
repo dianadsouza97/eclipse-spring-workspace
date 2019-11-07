@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.example.demo.service;
+
+/**
+ * @author b8ibmjava21
+ *
+ */
+public class EmployeeServiceImpl implements EmployeeService {
+
+}

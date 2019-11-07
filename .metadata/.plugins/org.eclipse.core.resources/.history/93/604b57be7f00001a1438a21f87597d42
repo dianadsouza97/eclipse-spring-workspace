@@ -1,0 +1,15 @@
+package com.example.demo.dao;
+
+import javax.persistence.EntityManager;
+
+import com.example.demo.Employee;
+
+public class EmployeedaoImpl implements EmployeeDao {
+private EntityManager entityManager;
+	@Override
+	public Employee save(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
