@@ -1,8 +1,0 @@
-spring:
-  mvc:
-    view:
-      prefix: /WEB_INF/views
-      suffix: .jsp
-  h2:
-    console:
-      enabled: true

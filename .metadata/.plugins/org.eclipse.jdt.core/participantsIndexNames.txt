@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\b8ibmjava21\eclipse-spring-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3237950817.index
-\spring-boot-hibernate\src\main\java
-C:\Users\b8ibmjava21\eclipse-spring-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3308278740.index
-\spring-boot-hibernate\src\main\java

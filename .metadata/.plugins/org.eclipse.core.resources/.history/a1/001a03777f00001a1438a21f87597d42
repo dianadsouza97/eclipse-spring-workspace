@@ -1,5 +1,0 @@
-package com.example.demo.dao;
-
-public interface EmployeeDao {
-	public Employee save(Employee employee);
-}
