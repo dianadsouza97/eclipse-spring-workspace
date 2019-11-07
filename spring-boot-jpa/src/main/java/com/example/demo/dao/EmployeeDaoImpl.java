@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.controller.EmployeeNotFoundException;
 import com.example.demo.entity.Employee;
 
 @Repository
@@ -38,12 +39,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public Employee getEmployee(int theId) {
 		Employee employee=entityManager.find(Employee.class,theId);
+		if(employee==null)
+		{
+			throw new EmployeeNotFoundException("Customer with the given id is not found: "+theId);
+		}
 		return employee;
 	}
 
 	@Override
 	public void deleteEmployee(int theId) {
 		Employee emp=entityManager.find(Employee.class,theId);
+		if(emp==null)
+		{
+			throw new EmployeeNotFoundException("Customer with the given id is not found: "+theId);
+		}
 		entityManager.remove(emp);
 	}
 
