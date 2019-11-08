@@ -29,7 +29,6 @@ public class Album {
 	@Column(name="album_name")
 	private String albumName;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "album", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
+	@OneToMany(targetEntity = Image.class)
 	private List<Image> image;
 	}

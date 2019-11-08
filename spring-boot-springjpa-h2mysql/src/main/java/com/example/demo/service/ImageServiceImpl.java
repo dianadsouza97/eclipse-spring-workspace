@@ -14,6 +14,7 @@ import com.example.demo.entity.Image;
 @Service
 @Transactional
 public class ImageServiceImpl implements ImageService {
+	
 	@Autowired
 	private ImageRepository imageRepository;
 
@@ -31,6 +32,7 @@ public class ImageServiceImpl implements ImageService {
 	@Override
 	public void createImages(Image theImage) {
 		imageRepository.save(theImage);
+		
 	}
 
 	

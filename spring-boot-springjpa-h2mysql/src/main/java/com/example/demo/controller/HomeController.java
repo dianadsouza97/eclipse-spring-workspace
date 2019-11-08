@@ -50,7 +50,7 @@ public class HomeController {
 		return imageService.getAllImages();
 	}
 	@PostMapping("/image")
-	public void createImage(Image theImage) {
+	public void createImage(@RequestBody Image theImage) {
 		imageService.createImages(theImage);
 	}
 	@GetMapping("/image/{id}")
