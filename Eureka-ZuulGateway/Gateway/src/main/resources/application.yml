@@ -1,0 +1,7 @@
+server:
+  port: 8050
+eureka:  client:    service-url:
+      default-zone: http://localhost:8761/eureka    register-with-eureka: true 
+spring:  cloud:    discovery:      locator:
+        enabled: true 
+        lowerCaseServiceId: true  application:    name: PROXY-GATEWAY
