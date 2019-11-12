@@ -1,0 +1,7 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:        web-allow-others: true  application:    name: login-service  cloud:    config:      uri: http://localhost:8765/
+ 
+server:  port: 0

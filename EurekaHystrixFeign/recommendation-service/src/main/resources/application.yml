@@ -1,0 +1,9 @@
+eureka:
+  client:
+    register-with-eureka: true
+server:  port: 8010
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8765/
+   
