@@ -5,5 +5,6 @@ server:  port: 8010
 spring:
   cloud:
     config:
-      uri: http://localhost:8765/
-   
+      uri: http://localhost:8765/  data:    mongodb:      database: recommendation
+      host: 127.0.0.1
+      port: 27017
