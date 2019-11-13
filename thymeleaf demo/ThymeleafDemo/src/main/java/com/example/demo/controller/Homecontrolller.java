@@ -50,14 +50,16 @@ public class Homecontrolller {
 				
 				// use a redirect to prevent duplicate submissions
 				return "redirect:/employee";
-			}
 			
-		
+			}
 	}
 	@RequestMapping("/delete")
 	public String delete(@RequestParam("employeeId") int id) {
-		Employee emp=employeeServiceImpl.findById(id);
-		employeeServiceImpl.deleteEmployee(emp);
+		employeeServiceImpl.delete(id);
+		/*
+		 * Employee emp=employeeServiceImpl.findById(id);
+		 * employeeServiceImpl.deleteEmployee(emp);
+		 */
 		return "redirect:/employee";
 	}
 	@RequestMapping("/update")
