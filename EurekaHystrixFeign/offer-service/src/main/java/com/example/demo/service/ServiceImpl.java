@@ -14,9 +14,18 @@ import com.example.demo.repository.Offerrepository;
 public class ServiceImpl {
 	@Autowired
 	private Offerrepository offerrepository;
+	
+	public ServiceImpl(Offerrepository offerrepository) {
+		super();
+		this.offerrepository = offerrepository;
+	}
 	public List<Offer> getAllOffers() {
 		
 		return offerrepository.findAll();
+	}
+	public void createOffer(Offer offer) {
+		// TODO Auto-generated method stub
+		offerrepository.save(offer);
 	}
 
 }

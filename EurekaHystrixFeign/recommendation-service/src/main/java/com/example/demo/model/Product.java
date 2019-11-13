@@ -15,6 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Document(collection="data")
 public class Product {
+
 	private String name;
 
 	private String description;

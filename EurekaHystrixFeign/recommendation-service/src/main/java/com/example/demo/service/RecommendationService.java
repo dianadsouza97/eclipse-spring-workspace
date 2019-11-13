@@ -18,5 +18,9 @@ private RecommendationRepository recommendationRepository;
 		// TODO Auto-generated method stub
 		return recommendationRepository.findAll();
 	}
+	public Product createRecommendation(Product product) {
+		// TODO Auto-generated method stub
+		return recommendationRepository.save(product);
+	}
 
 }

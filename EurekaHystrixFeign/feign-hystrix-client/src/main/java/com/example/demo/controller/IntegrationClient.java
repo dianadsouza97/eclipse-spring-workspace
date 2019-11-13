@@ -30,15 +30,27 @@ public class IntegrationClient {
 	public Collection<Product> getRecommendations() {
 		return this.recommendationClient.getRecommendations();
 	}
+	@HystrixCommand(fallbackMethod = "getRecommendationFallback")
+	public void saveProduct(Product product) {
+		 this.recommendationClient.saveProduct(product);
+	}
 
 	public Collection<Offer> getOffersFallback() {
 		System.out.println("===========getOffersFallback===========");
 		return Arrays.asList();
 	}
+	public void saveOffersFallback(Offer offer) {
+		System.out.println("===========getOffersFallback===========");
+		
+	}
 
 	@HystrixCommand(fallbackMethod = "getOffersFallback")
 	public Collection<Offer> getOffers() {
 		return this.offersClient.getCurrentOffers();
+	}
+	@HystrixCommand(fallbackMethod = "saveOffersFallback")
+	public void saveOffer(Offer offer) {
+		 this.offersClient.saveOffer(offer);
 	}
 
 }
