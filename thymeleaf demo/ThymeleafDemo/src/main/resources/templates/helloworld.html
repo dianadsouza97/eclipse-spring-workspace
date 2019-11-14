@@ -12,33 +12,24 @@
 <body>
 	<p th:text="'the time is ' +${theDate}" />
 	<h3>Employee Directory</h3>
-	
-	<form action="#" th:action="@{/search}" method="GET" class="form-inline">	
+	<div>
+		User: <span sec:authentication="name"></span> <br> Role(s): <span
+			sec:authentication="principal.authorities"></span> <br> <br>
+	</div>
+	<form action="#" th:action="@{/search}" method="GET"
+		class="form-inline">
 
 		<!-- Add a button -->
-		<a th:href="@{/showform}"
-			class="btn btn-primary btn-sm mb-3">
-			Add Employee
-		</a>
-	
-		<input type="search"
-			   name="firstName"
-			   placeholder="First name"
-			   class="form-control-sm ml-5 mr-2 mb-3" />
+		<a th:href="@{/showform}" class="btn btn-primary btn-sm mb-3"> Add
+			Employee </a> <input type="search" name="firstName"
+			placeholder="First name" class="form-control-sm ml-5 mr-2 mb-3" /> <input
+			type="search" name="lastName" placeholder="Last name"
+			class="form-control-sm mr-2 mb-3" /> <input type="search"
+			name="email" placeholder="Email" class="form-control-sm mr-2 mb-3" />
+		<button type="submit" class="btn btn-success btn-sm mb-3">Search</button>
 
-		<input type="search"
-			   name="lastName"
-			   placeholder="Last name"
-			   class="form-control-sm mr-2 mb-3" />
-		<input type="search"
-			   name="email"
-			   placeholder="Email"
-			   class="form-control-sm mr-2 mb-3" />
-		<button type="submit"
-				class="btn btn-success btn-sm mb-3">Search</button>
-			
 	</form>
-	
+
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
@@ -56,14 +47,32 @@
 				<td th:text="${tempEmp.lastName}"></td>
 				<td th:text="${tempEmp.email}"></td>
 
-				<td><a th:href="@{/delete(employeeId=${tempEmp.id})}">Delete</a></td>
-				<td><form action="#" th:action="@{/update(employeeId=${tempEmp.id})}"
-					method="post">
-				<input type="submit" value="Update">
-				</form></td>
+				<td>
+					<div sec:authorize="hasRole('ROLE_ADMIN')">
+						<a th:href="@{/delete(employeeId=${tempEmp.id})}">Delete</a>
+					</div>
+				</td>
+
+				<td>
+					<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+
+						<form action="#" th:action="@{/update(employeeId=${tempEmp.id})}"
+							method="post">
+							<input type="submit" value="Update">
+						</form>
+					</div>
+				</td>
+
 			</tr>
 
 		</tbody>
 	</table>
+	
+	<form action="#" th:action="@{/logout}" 
+			   method="POST">
+	
+		<input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+	
+	</form>
 </body>
 </html>

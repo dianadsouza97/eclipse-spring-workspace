@@ -21,11 +21,11 @@ import com.example.demo.service.EmployeeServiceImpl;
 public class Homecontrolller {
 	@Autowired
 	private EmployeeServiceImpl employeeServiceImpl;
-	@RequestMapping("/")
-	public String home(Model themodel) {
-		themodel.addAttribute("theDate",new Date());
-		return "helloworld";
-	}
+
+	/*
+	 * @RequestMapping("/") public String home(Model themodel) {
+	 * themodel.addAttribute("theDate",new Date()); return "helloworld"; }
+	 */
 	@GetMapping("/employee")
 	public String listEmployee(Model themodel) {
 		themodel.addAttribute("employee",employeeServiceImpl.listEmployee());

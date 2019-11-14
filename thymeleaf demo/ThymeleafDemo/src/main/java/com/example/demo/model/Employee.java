@@ -12,11 +12,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="employee")
+@Table(name="customer")
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="idcustomer")
 	private int id;
 	@Column(name="first_name")
 	@NotBlank(message="Required")
